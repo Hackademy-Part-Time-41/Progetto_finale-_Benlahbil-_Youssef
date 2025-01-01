@@ -10,12 +10,13 @@ use function PHPUnit\Framework\returnSelf;
 class WriterController extends Controller
 {
   public function dashboard(){
- $articles = Auth::user()->articles()->orderBy('created_at','desc')->get();
+ $articles = Auth::user()->articles()->orderBy('created_at','desc','@auth.'
+ )->get();
  $acceptedAarticles =$articles->where('is_accepted',true);
  $rejectedArticles =$articles->where('is_accepted' , false);
  $unrevisionedArticles = $articles->where('is_accepted',NULL);
 
 
-return view('ertiter.dashboard', compact('acceptedArticles', 'rejectedArticles','unrevisionedArticles'));
+return view('writer.dashboard', compact('acceptedArticles', 'rejectedArticles','unrevisionedArticles'));
   }
 }
