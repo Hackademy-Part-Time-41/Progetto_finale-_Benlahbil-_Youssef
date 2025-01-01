@@ -11,6 +11,7 @@
         <div class="col-12 col-md-8">
             <form action="#" method="#" class="card p-5 shadow" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="mb-3">
                     <label for="title" class="from-label">Titolo</label>
                     <input type="text" name="title" class="from-control" id="title" value="{{$article->title}}">
