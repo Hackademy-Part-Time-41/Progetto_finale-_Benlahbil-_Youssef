@@ -2,14 +2,14 @@
 <div class="container-fluid p-5 bg-secondary-subtle text-center">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1 class="display-1">Modifica l'articolo</h1>
+            <h1 class="display-1">Crea il tuo Articolo</h1>
         </div>
     </div>
 </div>
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            <form action="{{route('article.update', $article)}}" method="POST" class="card p-5 shadow" enctype="multipart/form-data">
+            <form action="{{ route('articles.store')}}" method="POST" class="card p-5 shadow" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image" class="from-label">Nuova Immagine</label>
+                    <label for="image" class="from-label">Inserisci un Immagine</label>
                     <input type="file" name="image" class="from-control" id="image">
                     @error('image')
                     <span class="text-danger">{{$message}}</span>
@@ -67,7 +67,6 @@
                 </div>
 
                 <div class="mb-3 d-flex justify-content-center flex-comun align-items-center">
-                     <button type="submit" class="btn btn-outline-secondary">Modifica articolo</button>
                      <a href="{{route('home'}}" class="text-secondary mt-2">Torna alla home</a>
                 </div>
 

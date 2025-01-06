@@ -1,5 +1,10 @@
-<x-layout>
+<x-layout>   
 <div class="container-fluid p-5 bg-secondary-subtle text-center">
+
+  @if(session()->has('success'))
+    {{session('success')}}
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-12">
             <h1 class="display-1">Bentornato, Redattore {{Auth::user()->name}}</h1>
@@ -11,7 +16,7 @@
         <div class="col-12">
             <h2>Articoli in attesa di revisione</h2>
 
-            <x-writer-articles-table :articles="$unrevisionedArticles"/>
+            <x-writer-articles-table :articles="$unrevisedArticles"/>
         </div>
     </div>
 </div>
